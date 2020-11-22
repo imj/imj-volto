@@ -1,3 +1,13 @@
+# Italian Magic Judges
+
+## Backend
+
+To run a proper Plone backend for this site, as of today the fastest way is docker.
+
+```bash
+$ docker run -d -p 8080:8080 --name imj -e SITE=Plone -e ADDONS="redturtle.volto" -e VERSIONS="plone.restapi=7.0.0a5 Products.PloneHotfix20200121=1.0" plone:5.2.2
+```
+
 ## Documentation
 
 A training on how to create your own website using Volto is available as part of the Plone training at [https://training.plone.org/5/volto/index.html](https://training.plone.org/5/volto/index.html).
@@ -37,15 +47,15 @@ Runs the test i18n runner which extracts all the translation strings and
 generates the needed files.
 
 
-### mr_developer
+### mrs-developer
 
-[mr_developer](https://www.npmjs.com/package/mr-developer) is a great tool
+[mrs-developer](https://www.npmjs.com/package/mrs-developer) is a great tool
 for developing multiple packages at the same time.
 
-mr_developer should work with this project by using the `--config` config option:
+mrs-developer works with this project by using the `--config` config option:
 
 ```bash
-mrdeveloper --config=jsconfig.json
+missdev --config=jsconfig.json
 ```
 
 Volto's latest razzle config will pay attention to your jsconfig.json file
