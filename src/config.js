@@ -23,6 +23,8 @@ import {
 
 export const settings = {
   ...defaultSettings,
+  supportedLanguages: ['it'],
+  defaultLanguage: 'it',
 };
 
 export const views = {
