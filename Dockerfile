@@ -6,13 +6,17 @@ RUN runDeps="openssl ca-certificates" && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY . /opt/frontend/
+WORKDIR /opt/frontend/
+
+COPY package.json yarn.lock ./
 RUN chown -R node /opt/frontend/
 
-WORKDIR /opt/frontend/
 USER node
 
 RUN RAZZLE_API_PATH=VOLTO_API_PATH RAZZLE_INTERNAL_API_PATH=VOLTO_INTERNAL_API_PATH yarn --frozen-lockfile
+
+COPY . .
+
 RUN RAZZLE_API_PATH=VOLTO_API_PATH RAZZLE_INTERNAL_API_PATH=VOLTO_INTERNAL_API_PATH yarn build && \
     rm -rf /home/node/.cache
 

@@ -3,7 +3,7 @@ set -Ex
 
 function apply_path {
     mainjs=./build/server.js
-    bundlejs=./build/public/static/*.js
+    bundlejs=./build/public/static/js/*.js
     test -f $mainjs
 
     echo "Check that we have API_PATH and API vars"
